@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="GreensHD">
 <meta property="og:description" content="实验环境：Ubuntu 16.04   64bit  已安装apt-get、wget、vi/vim、gcc、g++ 三台主机：114.212.82.116         114.212.82.171         114.212.83.36         用户名：apple   密码：****** 0、连网（登bras）命令：curl http://p.nju.edu.cn/portal_i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-25T07:14:32.000Z">
+<meta property="og:updated_time" content="2017-11-25T07:21:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="About Mpi">
 <meta name="twitter:description" content="实验环境：Ubuntu 16.04   64bit  已安装apt-get、wget、vi/vim、gcc、g++ 三台主机：114.212.82.116         114.212.82.171         114.212.83.36         用户名：apple   密码：****** 0、连网（登bras）命令：curl http://p.nju.edu.cn/portal_i">
@@ -382,7 +382,7 @@ mpirun -np 10 ./examples/cpi   （或可以-n）
  （0）前提：知道三台主机的ip，用户名相同均为apple，并安装了相同版本号的mpich。
  （1）检查各个机器的PATH（该步骤在前几个操作中已经提及，此处不再设置）：mpicc —version
  得到如下结果即可继续，否则，返回第4步重新设置PATH：
-![](https://github.com/GreensHD/greenshd.github.io/blob/master/images/1.png?raw=true)
+![](/images/1.jpg)
  （2）两两之间设置无password登录:
  如果当下是机器apple@u194（IP为114.212.82.116），运行以下命令：ssh-keygen -t rsa
  不要输入任何内容，直接回车。运行以下命令：ssh apple@114.212.82.171 mkdir -p .ssh
