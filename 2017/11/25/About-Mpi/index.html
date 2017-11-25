@@ -86,17 +86,17 @@
 
 
 
-<meta name="description" content="###实验环境：    Ubuntu 16.04   64bit  已安装apt-get、wget、vi/vim、gcc、g++    三台主机：114.212.82.116            114.212.82.171            114.212.83.36            用户名：apple ">
+<meta name="description" content="实验环境：Ubuntu 16.04   64bit  已安装apt-get、wget、vi/vim、gcc、g++ 三台主机：114.212.82.116         114.212.82.171         114.212.83.36         用户名：apple   密码：****** #0、连网（登">
 <meta property="og:type" content="article">
 <meta property="og:title" content="About Mpi">
 <meta property="og:url" content="http://yoursite.com/2017/11/25/About-Mpi/index.html">
 <meta property="og:site_name" content="GreensHD">
-<meta property="og:description" content="###实验环境：    Ubuntu 16.04   64bit  已安装apt-get、wget、vi/vim、gcc、g++    三台主机：114.212.82.116            114.212.82.171            114.212.83.36            用户名：apple   密码：** ###0、连网（登bras）      命令：curl http">
+<meta property="og:description" content="实验环境：Ubuntu 16.04   64bit  已安装apt-get、wget、vi/vim、gcc、g++ 三台主机：114.212.82.116         114.212.82.171         114.212.83.36         用户名：apple   密码：****** #0、连网（登bras）命令：curl http://p.nju.edu.cn/portal_">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-24T16:26:55.000Z">
+<meta property="og:updated_time" content="2017-11-25T01:37:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="About Mpi">
-<meta name="twitter:description" content="###实验环境：    Ubuntu 16.04   64bit  已安装apt-get、wget、vi/vim、gcc、g++    三台主机：114.212.82.116            114.212.82.171            114.212.83.36            用户名：apple   密码：** ###0、连网（登bras）      命令：curl http">
+<meta name="twitter:description" content="实验环境：Ubuntu 16.04   64bit  已安装apt-get、wget、vi/vim、gcc、g++ 三台主机：114.212.82.116         114.212.82.171         114.212.83.36         用户名：apple   密码：****** #0、连网（登bras）命令：curl http://p.nju.edu.cn/portal_">
 
 
 
@@ -336,18 +336,69 @@
       
 
       
-        <p>###实验环境：<br>    Ubuntu 16.04   64bit  已安装apt-get、wget、vi/vim、gcc、g++<br>    三台主机：114.212.82.116<br>            114.212.82.171<br>            114.212.83.36<br>            用户名：apple   密码：<strong>**</strong></p>
-<p>###0、连网（登bras）<br>      命令：curl <a href="http://p.nju.edu.cn/portal_io/login" target="_blank" rel="noopener">http://p.nju.edu.cn/portal_io/login</a> -d username=xxxx -d password=xxxxx</p>
-<p>###1、下载源文件<br>      镜像网站，下载比较快：<a href="http://www.mpich.org/static/downloads/3.2.1/" target="_blank" rel="noopener">http://www.mpich.org/static/downloads/3.2.1/</a><br>      官方网站，下载比较慢：<a href="http://www.mpich.org/downloads/" target="_blank" rel="noopener">http://www.mpich.org/downloads/</a><br>      命令：wget <a href="http://www.mpich.org/static/downloads/3.2.1/mpich-3.2.1.tar.gz" target="_blank" rel="noopener">http://www.mpich.org/static/downloads/3.2.1/mpich-3.2.1.tar.gz</a></p>
-<p>###2、解压源文件<br>      在home/apple下创建安装文件夹：mkdir mpich_install<br>      解压mpich压缩包到该文件夹下：sudo tar -zxvf mpich-3.2.1.tar.gz -C mpich_install</p>
-<p>###3、编译与安装<br>      在home/apple下创建安装路径文件夹：mkdir mpich （注：pwd查看当前路径）<br>      进入mpich_install目录，使用ls命令查看便可发现多出了一个mpich-3.2.1目录<br>      进入mpich-3.2.1目录，进行软件配置与检查，这里只设置安装目录即可。命令：<br>      ./configure -prefix=/home/apple/mpich （注：prefix参数表示安装路径，即mpich文件夹）<br>      接下来执行make命令编译，make install命令安装；也可make &amp;&amp; make install</p>
-<p>###4、配置环境变量<br>      编译执行的命令（mpicc、mpirun）是需要添加的，必须添加绝对路径才能正常使用。<br>      修改path，为path添加mpi的bin目录：进入mpich-3.2.1目录 vim ~/.bashrc<br>      在.bashrc文件的末尾添加：export PATH=/home/apple/mpich/bin:$PATH<br>      然后执行 source ~/.bashrc<br>      echo  $PATH，查看PATH是否发生变化；<br>      注销再登录后，查看bin下的可执行程序：ls /home/apple/mpich/bin<br>      查看命令是否是安装目录下的命令：which mpiexec</p>
-<p>###5、使用mpi命令<br>      编译MPI程序用mpicc，执行MPI程序用mpiexec。<br>      进入mpich-3.2.1目录下，ls可查看到有一个examples文件夹，进行测试确保安装成功：<br>      mpirun -np 10 ./examples/cpi   （或可以-n）<br>      再进入examples目录下，编译运行hellow：<br>      编译：mpicc -o hellow hellow.c   运行：mpirun -np 4 ./hellow  </p>
-<p>###6、实现各主机间无密码登录<br>      如需使用MPI在不同的机器上运行程序，一方面可以使用超级用户权限，另一方面，有些情况下我们不能拥有操作系统的超级用户权限，导致不能改动除用户文件夹以外的文件夹。因此，以下步骤可以使普通用户实现mpi程序的编译和多机器运行。<br>      （0）前提：知道三台主机的ip，用户名相同均为apple，并安装了相同版本号的mpich。<br>      （1）检查各个机器的PATH（该步骤在前几个操作中已经提及，此处不再设置）：mpicc —version<br>      得到如下结果即可继续，否则，返回第4步重新设置PATH：<br>      （2）两两之间设置无password登录:<br>      如果当下是机器apple@u194（IP为114.212.82.116），运行以下命令：ssh-keygen -t rsa<br>      不要输入任何内容，直接回车。运行以下命令：ssh apple@114.212.82.171 mkdir -p .ssh<br>      将会提示输入机器apple@u171（IP为114.212.82.171）的password，输入后，敲击回车;<br>      运行以下命令：<br>      cat .ssh/id_rsa.pub | ssh apple@114.212.82.171 ‘cat &gt;&gt; .ssh/authorized_keys’<br>      然后登录apple@u171：ssh apple@114.212.82.171<br>      继续运行以下命令：ssh-keygen -t rsa 遇到yes/no，yes；其余情况一律回车；<br>      运行以下命令：<br>      cat .ssh/id_rsa.pub | ssh apple@114.212.82.116 ‘cat &gt;&gt; .ssh/authorized_keys’<br>      最后运行以下命令，以推出机器apple@u171：exit<br>      完成上面的步骤后，就可以实现apple用户在u194和u171之间免密登录了。<br>      其余主机也是如此设置，但需要注意的是，每台主机的rsa密钥只需生成一次，不要重复设置以免覆盖原有的图案。</p>
-<p>###7、mpi多机器运行<br>     （0）首先在apple@u171的/home/apple目录下，新建test.c文件，代码如下：<br>            <em>图片还在施工中<br>     （1）执行命令mpicc -o test test.c 进行编译，生成可执行文件test<br>     （2）在apple@u36、apple@u171、apple@u194的/home/apple目录下，分别新建一个hosts文件，用来保存三台机器的IP地址，第一行是本机IP，示例如下：（apple@u171下的hosts内容）
-            </em>图片还在施工中<br>     （3）然后将apple@u171中，刚刚编译生成的test，复制到其他机器相同目录下，命令为：<br>         scp apple@114.212.82.171:/home/apple/test /home/apple<br>     （4）在apple@u171的/home/apple目录下，执行命令：mpirun -n 10 -f /home/apple/hosts ./test<br>         得到如下结果：<br>            *图片还在施工中</p>
-<p>###附：<br>    每台机器各个目录下的文件如下所示：<br>    1、apple@u194 （114.212.82.116）<em>图片还在施工中<br>    2、apple@u171 （114.212.82.171）</em>图片还在施工中<br>    3、apple@u36 （114.212.83.36）  *图片还在施工中<br>    u171、u194都有2个process，u36只有一个；如果开6个，则每台主机分到2个process。<br>    所以process的分配是和hosts中写的IP顺序有关吗？</p>
-
+        <h3 id="实验环境："><a href="#实验环境：" class="headerlink" title="实验环境："></a>实验环境：</h3><pre><code>Ubuntu 16.04   64bit  已安装apt-get、wget、vi/vim、gcc、g++
+三台主机：114.212.82.116
+        114.212.82.171
+        114.212.83.36
+        用户名：apple   密码：******
+</code></pre><h2 id="0、连网（登bras）"><a href="#0、连网（登bras）" class="headerlink" title="#0、连网（登bras）"></a>#0、连网（登bras）</h2><pre><code>命令：curl http://p.nju.edu.cn/portal_io/login -d username=xxxx -d password=xxxxx
+</code></pre><a id="more"></a>
+<h3 id="1、下载源文件"><a href="#1、下载源文件" class="headerlink" title="1、下载源文件"></a>1、下载源文件</h3><pre><code>镜像网站，下载比较快：http://www.mpich.org/static/downloads/3.2.1/
+官方网站，下载比较慢：http://www.mpich.org/downloads/
+命令：wget http://www.mpich.org/static/downloads/3.2.1/mpich-3.2.1.tar.gz
+</code></pre><h3 id="2、解压源文件"><a href="#2、解压源文件" class="headerlink" title="2、解压源文件"></a>2、解压源文件</h3><pre><code>在home/apple下创建安装文件夹：mkdir mpich_install
+解压mpich压缩包到该文件夹下：sudo tar -zxvf mpich-3.2.1.tar.gz -C mpich_install
+</code></pre><h3 id="3、编译与安装"><a href="#3、编译与安装" class="headerlink" title="3、编译与安装"></a>3、编译与安装</h3><pre><code>在home/apple下创建安装路径文件夹：mkdir mpich （注：pwd查看当前路径）
+进入mpich_install目录，使用ls命令查看便可发现多出了一个mpich-3.2.1目录
+进入mpich-3.2.1目录，进行软件配置与检查，这里只设置安装目录即可。命令：
+./configure -prefix=/home/apple/mpich （注：prefix参数表示安装路径，即mpich文件夹）
+接下来执行make命令编译，make install命令安装；也可make &amp;&amp; make install
+</code></pre><h3 id="4、配置环境变量"><a href="#4、配置环境变量" class="headerlink" title="4、配置环境变量"></a>4、配置环境变量</h3><pre><code>编译执行的命令（mpicc、mpirun）是需要添加的，必须添加绝对路径才能正常使用。
+修改path，为path添加mpi的bin目录：进入mpich-3.2.1目录 vim ~/.bashrc
+在.bashrc文件的末尾添加：export PATH=/home/apple/mpich/bin:$PATH    
+然后执行 source ~/.bashrc
+echo  $PATH，查看PATH是否发生变化；
+注销再登录后，查看bin下的可执行程序：ls /home/apple/mpich/bin
+查看命令是否是安装目录下的命令：which mpiexec
+</code></pre><h3 id="5、使用mpi命令"><a href="#5、使用mpi命令" class="headerlink" title="5、使用mpi命令"></a>5、使用mpi命令</h3><pre><code>编译MPI程序用mpicc，执行MPI程序用mpiexec。
+进入mpich-3.2.1目录下，ls可查看到有一个examples文件夹，进行测试确保安装成功：
+mpirun -np 10 ./examples/cpi   （或可以-n）
+再进入examples目录下，编译运行hellow：
+编译：mpicc -o hellow hellow.c   运行：mpirun -np 4 ./hellow  
+</code></pre><h3 id="6、实现各主机间无密码登录"><a href="#6、实现各主机间无密码登录" class="headerlink" title="6、实现各主机间无密码登录"></a>6、实现各主机间无密码登录</h3><pre><code>如需使用MPI在不同的机器上运行程序，一方面可以使用超级用户权限，另一方面，有些情况下我们不能拥有操作系统的超级用户权限，导致不能改动除用户文件夹以外的文件夹。因此，以下步骤可以使普通用户实现mpi程序的编译和多机器运行。
+（0）前提：知道三台主机的ip，用户名相同均为apple，并安装了相同版本号的mpich。
+（1）检查各个机器的PATH（该步骤在前几个操作中已经提及，此处不再设置）：mpicc —version
+得到如下结果即可继续，否则，返回第4步重新设置PATH：
+（2）两两之间设置无password登录:
+如果当下是机器apple@u194（IP为114.212.82.116），运行以下命令：ssh-keygen -t rsa
+不要输入任何内容，直接回车。运行以下命令：ssh apple@114.212.82.171 mkdir -p .ssh
+将会提示输入机器apple@u171（IP为114.212.82.171）的password，输入后，敲击回车;
+运行以下命令：
+cat .ssh/id_rsa.pub | ssh apple@114.212.82.171 &apos;cat &gt;&gt; .ssh/authorized_keys’
+然后登录apple@u171：ssh apple@114.212.82.171
+继续运行以下命令：ssh-keygen -t rsa 遇到yes/no，yes；其余情况一律回车；
+运行以下命令：
+cat .ssh/id_rsa.pub | ssh apple@114.212.82.116 &apos;cat &gt;&gt; .ssh/authorized_keys’
+最后运行以下命令，以推出机器apple@u171：exit
+完成上面的步骤后，就可以实现apple用户在u194和u171之间免密登录了。
+其余主机也是如此设置，但需要注意的是，每台主机的rsa密钥只需生成一次，不要重复设置以免覆盖原有的图案。
+</code></pre><h3 id="7、mpi多机器运行"><a href="#7、mpi多机器运行" class="headerlink" title="7、mpi多机器运行"></a>7、mpi多机器运行</h3><pre><code>（0）首先在apple@u171的/home/apple目录下，新建test.c文件，代码如下：
+       *图片还在施工中
+（1）执行命令mpicc -o test test.c 进行编译，生成可执行文件test
+（2）在apple@u36、apple@u171、apple@u194的/home/apple目录下，分别新建一个hosts文件，用来保存三台机器的IP地址，第一行是本机IP，示例如下：（apple@u171下的hosts内容）
+       *图片还在施工中
+（3）然后将apple@u171中，刚刚编译生成的test，复制到其他机器相同目录下，命令为：
+    scp apple@114.212.82.171:/home/apple/test /home/apple
+（4）在apple@u171的/home/apple目录下，执行命令：mpirun -n 10 -f /home/apple/hosts ./test
+    得到如下结果：
+       *图片还在施工中
+</code></pre><h3 id="附："><a href="#附：" class="headerlink" title="附："></a>附：</h3><pre><code>每台机器各个目录下的文件如下所示：
+1、apple@u194 （114.212.82.116）*图片还在施工中
+2、apple@u171 （114.212.82.171）*图片还在施工中
+3、apple@u36 （114.212.83.36）  *图片还在施工中
+u171、u194都有2个process，u36只有一个；如果开6个，则每台主机分到2个process。
+所以process的分配是和hosts中写的IP顺序有关吗？
+</code></pre>
       
     </div>
     
@@ -431,8 +482,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -476,6 +536,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#实验环境："><span class="nav-number">1.</span> <span class="nav-text">实验环境：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0、连网（登bras）"><span class="nav-number"></span> <span class="nav-text">#0、连网（登bras）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、下载源文件"><span class="nav-number">1.</span> <span class="nav-text">1、下载源文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、解压源文件"><span class="nav-number">2.</span> <span class="nav-text">2、解压源文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、编译与安装"><span class="nav-number">3.</span> <span class="nav-text">3、编译与安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、配置环境变量"><span class="nav-number">4.</span> <span class="nav-text">4、配置环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、使用mpi命令"><span class="nav-number">5.</span> <span class="nav-text">5、使用mpi命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、实现各主机间无密码登录"><span class="nav-number">6.</span> <span class="nav-text">6、实现各主机间无密码登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7、mpi多机器运行"><span class="nav-number">7.</span> <span class="nav-text">7、mpi多机器运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#附："><span class="nav-number">8.</span> <span class="nav-text">附：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
