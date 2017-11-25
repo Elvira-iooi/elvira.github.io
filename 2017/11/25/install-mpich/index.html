@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="MPI," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -87,16 +87,15 @@
 
 
 <meta name="description" content="实验环境：Ubuntu 16.04   64bit  已安装apt-get、wget、vi/vim、gcc、g++ 三台主机：114.212.82.116         114.212.82.171         114.212.83.36         用户名：apple   密码：****** 0、连网（登b">
-<meta name="keywords" content="MPI">
 <meta property="og:type" content="article">
-<meta property="og:title" content="About Mpi">
-<meta property="og:url" content="http://yoursite.com/2017/11/25/About-Mpi/index.html">
+<meta property="og:title" content="install mpich">
+<meta property="og:url" content="http://yoursite.com/2017/11/25/install-mpich/index.html">
 <meta property="og:site_name" content="GreensHD">
 <meta property="og:description" content="实验环境：Ubuntu 16.04   64bit  已安装apt-get、wget、vi/vim、gcc、g++ 三台主机：114.212.82.116         114.212.82.171         114.212.83.36         用户名：apple   密码：****** 0、连网（登bras）命令：curl http://p.nju.edu.cn/portal_i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-25T07:21:43.000Z">
+<meta property="og:updated_time" content="2017-11-25T07:32:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="About Mpi">
+<meta name="twitter:title" content="install mpich">
 <meta name="twitter:description" content="实验环境：Ubuntu 16.04   64bit  已安装apt-get、wget、vi/vim、gcc、g++ 三台主机：114.212.82.116         114.212.82.171         114.212.83.36         用户名：apple   密码：****** 0、连网（登bras）命令：curl http://p.nju.edu.cn/portal_i">
 
 
@@ -127,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/25/About-Mpi/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/11/25/install-mpich/"/>
 
 
 
 
 
-  <title>About Mpi | GreensHD</title>
+  <title>install mpich | GreensHD</title>
   
 
 
@@ -260,7 +259,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/25/About-Mpi/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/25/install-mpich/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lu Ping">
@@ -277,7 +276,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">About Mpi</h1>
+          <h1 class="post-title" itemprop="name headline">install mpich</h1>
         
 
         <div class="post-meta">
@@ -289,7 +288,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-25T00:21:41+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-25T15:28:21+08:00">
                 2017-11-25
               </time>
             
@@ -299,28 +298,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mpich/" itemprop="url" rel="index">
-                    <span itemprop="name">mpich</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -378,24 +355,24 @@ echo  $PATH，查看PATH是否发生变化；
 mpirun -np 10 ./examples/cpi   （或可以-n）
 再进入examples目录下，编译运行hellow：
 编译：mpicc -o hellow hellow.c   运行：mpirun -np 4 ./hellow  
-</code></pre><h3 id="6、实现各主机间无密码登录"><a href="#6、实现各主机间无密码登录" class="headerlink" title="6、实现各主机间无密码登录"></a>6、实现各主机间无密码登录</h3><pre><code> 如需使用MPI在不同的机器上运行程序，一方面可以使用超级用户权限，另一方面，有些情况下我们不能拥有操作系统的超级用户权限，导致不能改动除用户文件夹以外的文件夹。因此，以下步骤可以使普通用户实现mpi程序的编译和多机器运行。
- （0）前提：知道三台主机的ip，用户名相同均为apple，并安装了相同版本号的mpich。
- （1）检查各个机器的PATH（该步骤在前几个操作中已经提及，此处不再设置）：mpicc —version
- 得到如下结果即可继续，否则，返回第4步重新设置PATH：
-![](/images/1.jpg)
- （2）两两之间设置无password登录:
- 如果当下是机器apple@u194（IP为114.212.82.116），运行以下命令：ssh-keygen -t rsa
- 不要输入任何内容，直接回车。运行以下命令：ssh apple@114.212.82.171 mkdir -p .ssh
- 将会提示输入机器apple@u171（IP为114.212.82.171）的password，输入后，敲击回车;
- 运行以下命令：
- cat .ssh/id_rsa.pub | ssh apple@114.212.82.171 &apos;cat &gt;&gt; .ssh/authorized_keys’
- 然后登录apple@u171：ssh apple@114.212.82.171
- 继续运行以下命令：ssh-keygen -t rsa 遇到yes/no，yes；其余情况一律回车；
- 运行以下命令：
- cat .ssh/id_rsa.pub | ssh apple@114.212.82.116 &apos;cat &gt;&gt; .ssh/authorized_keys’
- 最后运行以下命令，以推出机器apple@u171：exit
- 完成上面的步骤后，就可以实现apple用户在u194和u171之间免密登录了。
- 其余主机也是如此设置，但需要注意的是，每台主机的rsa密钥只需生成一次，不要重复设置以免覆盖原有的图案。
+</code></pre><h3 id="6、实现各主机间无密码登录"><a href="#6、实现各主机间无密码登录" class="headerlink" title="6、实现各主机间无密码登录"></a>6、实现各主机间无密码登录</h3><pre><code>如需使用MPI在不同的机器上运行程序，一方面可以使用超级用户权限，另一方面，有些情况下我们不能拥有操作系统的超级用户权限，导致不能改动除用户文件夹以外的文件夹。因此，以下步骤可以使普通用户实现mpi程序的编译和多机器运行。
+（0）前提：知道三台主机的ip，用户名相同均为apple，并安装了相同版本号的mpich。
+（1）检查各个机器的PATH（该步骤在前几个操作中已经提及，此处不再设置）：mpicc —version
+得到如下结果即可继续，否则，返回第4步重新设置PATH：
+ ![](install-mpich/1.jpg)
+（2）两两之间设置无password登录:
+如果当下是机器apple@u194（IP为114.212.82.116），运行以下命令：ssh-keygen -t rsa
+不要输入任何内容，直接回车。运行以下命令：ssh apple@114.212.82.171 mkdir -p .ssh
+将会提示输入机器apple@u171（IP为114.212.82.171）的password，输入后，敲击回车;
+运行以下命令：
+cat .ssh/id_rsa.pub | ssh apple@114.212.82.171 &apos;cat &gt;&gt; .ssh/authorized_keys’
+然后登录apple@u171：ssh apple@114.212.82.171
+继续运行以下命令：ssh-keygen -t rsa 遇到yes/no，yes；其余情况一律回车；
+运行以下命令：
+cat .ssh/id_rsa.pub | ssh apple@114.212.82.116 &apos;cat &gt;&gt; .ssh/authorized_keys’
+最后运行以下命令，以推出机器apple@u171：exit
+完成上面的步骤后，就可以实现apple用户在u194和u171之间免密登录了。
+其余主机也是如此设置，但需要注意的是，每台主机的rsa密钥只需生成一次，不要重复设置以免覆盖原有的图案。
 </code></pre><h3 id="7、mpi多机器运行"><a href="#7、mpi多机器运行" class="headerlink" title="7、mpi多机器运行"></a>7、mpi多机器运行</h3><pre><code>（0）首先在apple@u171的/home/apple目录下，新建test.c文件，代码如下：
        *图片还在施工中
 （1）执行命令mpicc -o test test.c 进行编译，生成可执行文件test
@@ -426,12 +403,6 @@ u171、u194都有2个process，u36只有一个；如果开6个，则每台主机
     
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/MPI/" rel="tag"># MPI</a>
-          
-        </div>
       
 
       
@@ -522,25 +493,7 @@ u171、u194都有2个process，u36只有一个；如果开6个，则每台主机
             
 
             
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
 
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
             
 
           </nav>
