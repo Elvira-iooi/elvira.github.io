@@ -256,6 +256,160 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/25/MPI的容器化封装/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lu Ping">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GreensHD">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/25/MPI的容器化封装/" itemprop="url">MPI的容器化封装</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-25T23:39:18+08:00">
+                2017-11-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MPI/" itemprop="url" rel="index">
+                    <span itemprop="name">MPI</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="MPI的容器化封装技术／基于Docker的HPC平台"><a href="#MPI的容器化封装技术／基于Docker的HPC平台" class="headerlink" title="MPI的容器化封装技术／基于Docker的HPC平台"></a>MPI的容器化封装技术／基于Docker的HPC平台</h2><pre><code>问题：
+1、mpirun hydra；
+2、docker封装openmpi、mpich、数学库，若干个版本；
+3、docker之间通信网络：通过与主机的bridge；或者，docker之间创建虚拟网络。
+</code></pre><p>————————————————————————————————————————</p>
+<h3 id="0、知识准备"><a href="#0、知识准备" class="headerlink" title="0、知识准备"></a>0、知识准备</h3><h6 id="并行计算基础（六种实现手段）"><a href="#并行计算基础（六种实现手段）" class="headerlink" title="*并行计算基础（六种实现手段）"></a>*并行计算基础（六种实现手段）</h6><p>####（一）MPI的认识<br>           MPI：message passing interface，即信息传递接口，包含协议和语义说明。它是一个跨语言的通讯协议，支持点对点和广播，在进程级实现并行计算。（<a href="http://mpi-forum.org/）" target="_blank" rel="noopener">http://mpi-forum.org/）</a><br>    MPI的模型叫做SPMD，single program multiple data，即运行同一个程序，但是处理不同的数据。进程的行为由通讯域（communication world）和该通讯域下的id（rank id）所决定。<br>           *注：MPI可扩展性好，且控制精细度高；但它的编程模型复杂，必须精雕细琢：<br>                (1).需要分析及划分应用程序问题，并将问题映射到分布式进程集合；<br>                (2).需要解决通信延迟大和负载不平衡的两个主要问题；<br>                (3).调试MPI程序麻烦；<br>                (4).MPI程序可靠性差，一个进程出问题，整个程序将错误。<br>           实现：OpenMPI：<a href="https://www.open-mpi.org/" target="_blank" rel="noopener">https://www.open-mpi.org/</a><br>                 MPICH：<a href="https://www.mpich.org/" target="_blank" rel="noopener">https://www.mpich.org/</a><br>           安装及Hellow：移步：<a href="https://greenshd.github.io/" target="_blank" rel="noopener">https://greenshd.github.io/</a> （目前只安装了mpich，后续更新openmpi）<br>           MPI程序编译环境：</p>
+<pre><code>      * 传统语言（C，C++，Fortran）编译器 + 符合MPI标准的库
+ MPI程序编译执行的流程是：
+      ===&gt;mpicc -o 编译mpi程序，将mpi.f头文件加载到程序中，形成可执行并行程序；
+      ===&gt;通过mpirun脚本建立并行环境，分配节点/进程rank
+
+mpirun：shell脚本，由hydra实现。
+hydra：进程管理器（Process Manager，PM）利用ssh、rsh、pbs、slurm和sge等工具部署并运行程序。相对于mpd较为轻量——不用额外启动服务器端，不用进行复杂的服务器配置，只需写一个hosts文件即可。
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/25/install-mpich/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -423,14 +577,32 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
             
 
           </nav>
