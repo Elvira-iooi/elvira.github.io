@@ -349,13 +349,14 @@
       
         
           
-            <h2 id="MPI的容器化封装技术／基于Docker的HPC平台"><a href="#MPI的容器化封装技术／基于Docker的HPC平台" class="headerlink" title="MPI的容器化封装技术／基于Docker的HPC平台"></a>MPI的容器化封装技术／基于Docker的HPC平台</h2><pre><code>问题：
+            <pre><code>基于Docker的HPC平台
+问题：
 1、mpirun hydra；
 2、docker封装openmpi、mpich、数学库，若干个版本；
 3、docker之间通信网络：通过与主机的bridge；或者，docker之间创建虚拟网络。
 </code></pre><p>————————————————————————————————————————</p>
-<h3 id="0、知识准备"><a href="#0、知识准备" class="headerlink" title="0、知识准备"></a>0、知识准备</h3><h6 id="并行计算基础（六种实现手段）"><a href="#并行计算基础（六种实现手段）" class="headerlink" title="*并行计算基础（六种实现手段）"></a>*并行计算基础（六种实现手段）</h6><p>&lt;–!more–&gt;<br>&gt;</p>
-<h5 id="一-MPI的认识"><a href="#一-MPI的认识" class="headerlink" title="(一)MPI的认识"></a>(一)MPI的认识</h5><pre><code>       MPI：message passing interface，即信息传递接口，包含协议和语义说明。它是一个跨语言的通讯协议，支持点对点和广播，在进程级实现并行计算。（http://mpi-forum.org/）
+<h2 id="0、知识准备"><a href="#0、知识准备" class="headerlink" title="0、知识准备"></a>0、知识准备</h2><h6 id="并行计算基础（六种实现手段）"><a href="#并行计算基础（六种实现手段）" class="headerlink" title="*并行计算基础（六种实现手段）"></a>*并行计算基础（六种实现手段）</h6><p>&lt;–!more–&gt;</p>
+<h3 id="一-MPI的认识"><a href="#一-MPI的认识" class="headerlink" title="(一)MPI的认识"></a>(一)MPI的认识</h3><pre><code>       MPI：message passing interface，即信息传递接口，包含协议和语义说明。它是一个跨语言的通讯协议，支持点对点和广播，在进程级实现并行计算。（http://mpi-forum.org/）
 MPI的模型叫做SPMD，single program multiple data，即运行同一个程序，但是处理不同的数据。进程的行为由通讯域（communication world）和该通讯域下的id（rank id）所决定。
        *注：MPI可扩展性好，且控制精细度高；但它的编程模型复杂，必须精雕细琢：
             (1).需要分析及划分应用程序问题，并将问题映射到分布式进程集合；
