@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="GreensHD">
 <meta property="og:description" content="毕设开题讲稿转载说明出处，抄袭发际线变高:-)HPC (high performance computer)高性能计算是计算机科学中一个特殊而又重要的领域，它涉及到要求高计算能力和计算速度的大问题。HPC在模拟任务，比如天气预报，流行病、基因组分析，探索地外智慧或许多常见的大数据问题等方面尤其受欢迎。这些任务对于单台计算机来说太大了，所以要通过一组计算机来协作计算。  由于多台连接的计算机的性质，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-29T13:58:32.661Z">
+<meta property="og:updated_time" content="2017-11-29T14:00:49.648Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="毕设开题讲稿">
 <meta name="twitter:description" content="毕设开题讲稿转载说明出处，抄袭发际线变高:-)HPC (high performance computer)高性能计算是计算机科学中一个特殊而又重要的领域，它涉及到要求高计算能力和计算速度的大问题。HPC在模拟任务，比如天气预报，流行病、基因组分析，探索地外智慧或许多常见的大数据问题等方面尤其受欢迎。这些任务对于单台计算机来说太大了，所以要通过一组计算机来协作计算。  由于多台连接的计算机的性质，">
@@ -369,9 +369,9 @@ Marathon是在Mesos资源管理器上开发的，主要针对长时间运行应�
 
 MPI程序编译环境是传统语言编译器+符合MPI标准的库；编译的流程是mpicc –o编译mpi程序，将mpi.f头文件加载到程序中，形成可执行并行程序；通过mpirun脚本建立并行环境，分配节点/进程。Mpirun是由hydra进程管理器实现的，hydra利用ssh、rsh、pbs等工具运行程序，不需要进行复杂的配置，只需写一个hosts文件即可。
 
- 一般Docker容器比较适合运行单个进程，但是在我的毕设中需要在Docker容器中运行多个进程。目前也有解决方案，比如使用shell脚本、Supervisor进程管理工具等等。
+一般Docker容器比较适合运行单个进程，但是在我的毕设中需要在Docker容器中运行多个进程。目前也有解决方案，比如使用shell脚本、Supervisor进程管理工具等等。
 
- 最后就是Docker之间互相通信，打算使用overlay网络。它是docker提供的一种面向应用层的网络制式，支持多用户独占隔离网络，运行跨主机通信，甚至应用之间的网络隔离。
+最后就是Docker之间互相通信，打算使用overlay网络。它是docker提供的一种面向应用层的网络制式，支持多用户独占隔离网络，运行跨主机通信，甚至应用之间的网络隔离。
 
 
 
