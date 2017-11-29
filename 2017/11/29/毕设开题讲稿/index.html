@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="基于Docker的HPC平台 问题： 1、mpirun hydra； 2、docker封装openmpi、mpich、数学库，若干个版本； 3、docker之间通信网络：通过与主机的bridge；或者，docker之间创建虚拟网络。">
+<meta name="description" content="毕设开题讲稿转载说明出处，抄袭发际线变高:-)HPC (high performance computer)高性能计算是计算机科学中一个特殊而又重要的领域，它涉及到要求高计算能力和计算速度的大问题。HPC在模拟任务，比如天气预报，流行病、基因组分析，探索地外智慧或许多常见的大数据问题等方面尤其受欢迎。这些任务对于单台计">
 <meta name="keywords" content="MPI,Docker">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MPI的容器化封装">
-<meta property="og:url" content="http://yoursite.com/2017/11/25/MPI的容器化封装/index.html">
+<meta property="og:title" content="毕设开题讲稿">
+<meta property="og:url" content="http://yoursite.com/2017/11/29/毕设开题讲稿/index.html">
 <meta property="og:site_name" content="GreensHD">
-<meta property="og:description" content="基于Docker的HPC平台 问题： 1、mpirun hydra； 2、docker封装openmpi、mpich、数学库，若干个版本； 3、docker之间通信网络：通过与主机的bridge；或者，docker之间创建虚拟网络。">
+<meta property="og:description" content="毕设开题讲稿转载说明出处，抄袭发际线变高:-)HPC (high performance computer)高性能计算是计算机科学中一个特殊而又重要的领域，它涉及到要求高计算能力和计算速度的大问题。HPC在模拟任务，比如天气预报，流行病、基因组分析，探索地外智慧或许多常见的大数据问题等方面尤其受欢迎。这些任务对于单台计算机来说太大了，所以要通过一组计算机来协作计算。 由于多台连接的计算机的性质，为">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-25T15:51:12.000Z">
+<meta property="og:updated_time" content="2017-11-29T13:52:39.493Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MPI的容器化封装">
-<meta name="twitter:description" content="基于Docker的HPC平台 问题： 1、mpirun hydra； 2、docker封装openmpi、mpich、数学库，若干个版本； 3、docker之间通信网络：通过与主机的bridge；或者，docker之间创建虚拟网络。">
+<meta name="twitter:title" content="毕设开题讲稿">
+<meta name="twitter:description" content="毕设开题讲稿转载说明出处，抄袭发际线变高:-)HPC (high performance computer)高性能计算是计算机科学中一个特殊而又重要的领域，它涉及到要求高计算能力和计算速度的大问题。HPC在模拟任务，比如天气预报，流行病、基因组分析，探索地外智慧或许多常见的大数据问题等方面尤其受欢迎。这些任务对于单台计算机来说太大了，所以要通过一组计算机来协作计算。 由于多台连接的计算机的性质，为">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/25/MPI的容器化封装/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/11/29/毕设开题讲稿/"/>
 
 
 
 
 
-  <title>MPI的容器化封装 | GreensHD</title>
+  <title>毕设开题讲稿 | GreensHD</title>
   
 
 
@@ -260,7 +260,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/25/MPI的容器化封装/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/29/毕设开题讲稿/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lu Ping">
@@ -277,7 +277,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">MPI的容器化封装</h1>
+          <h1 class="post-title" itemprop="name headline">毕设开题讲稿</h1>
         
 
         <div class="post-meta">
@@ -289,8 +289,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-25T23:39:18+08:00">
-                2017-11-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-29T21:49:10+08:00">
+                2017-11-29
               </time>
             
 
@@ -312,8 +312,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/MPI/" itemprop="url" rel="index">
-                    <span itemprop="name">MPI</span>
+                  <a href="/categories/MPI-Docker/" itemprop="url" rel="index">
+                    <span itemprop="name">MPI,Docker</span>
                   </a>
                 </span>
 
@@ -349,32 +349,12 @@
       
 
       
-        <pre><code>基于Docker的HPC平台
-问题：
-1、mpirun hydra；
-2、docker封装openmpi、mpich、数学库，若干个版本；
-3、docker之间通信网络：通过与主机的bridge；或者，docker之间创建虚拟网络。
-</code></pre><a id="more"></a>
-<p>————————————————————————————————————————</p>
-<h2 id="0、知识准备"><a href="#0、知识准备" class="headerlink" title="0、知识准备"></a>0、知识准备</h2><h6 id="并行计算基础（六种实现手段）"><a href="#并行计算基础（六种实现手段）" class="headerlink" title="*并行计算基础（六种实现手段）"></a>*并行计算基础（六种实现手段）</h6><h3 id="一-MPI的认识"><a href="#一-MPI的认识" class="headerlink" title="(一)MPI的认识"></a>(一)MPI的认识</h3><pre><code>       MPI：message passing interface，即信息传递接口，包含协议和语义说明。它是一个跨语言的通讯协议，支持点对点和广播，在进程级实现并行计算。（http://mpi-forum.org/）
-MPI的模型叫做SPMD，single program multiple data，即运行同一个程序，但是处理不同的数据。进程的行为由通讯域（communication world）和该通讯域下的id（rank id）所决定。
-       *注：MPI可扩展性好，且控制精细度高；但它的编程模型复杂，必须精雕细琢：
-            (1).需要分析及划分应用程序问题，并将问题映射到分布式进程集合；
-            (2).需要解决通信延迟大和负载不平衡的两个主要问题；
-            (3).调试MPI程序麻烦；
-            (4).MPI程序可靠性差，一个进程出问题，整个程序将错误。        
-       实现：OpenMPI：https://www.open-mpi.org/
-             MPICH：https://www.mpich.org/
-       安装及Hellow：移步：https://greenshd.github.io/ （目前只安装了mpich，后续更新openmpi）
-       MPI程序编译环境：
-            * 传统语言（C，C++，Fortran）编译器 + 符合MPI标准的库
-       MPI程序编译执行的流程是：
-            ===&gt;mpicc -o 编译mpi程序，将mpi.f头文件加载到程序中，形成可执行并行程序；
-            ===&gt;通过mpirun脚本建立并行环境，分配节点/进程rank
+        <h2 id="毕设开题讲稿"><a href="#毕设开题讲稿" class="headerlink" title="毕设开题讲稿"></a>毕设开题讲稿</h2><h4 id="转载说明出处，抄袭发际线变高"><a href="#转载说明出处，抄袭发际线变高" class="headerlink" title="转载说明出处，抄袭发际线变高:-)"></a>转载说明出处，抄袭发际线变高:-)</h4><pre><code>HPC (high performance computer)高性能计算是计算机科学中一个特殊而又重要的领域，它涉及到要求高计算能力和计算速度的大问题。HPC在模拟任务，比如天气预报，流行病、基因组分析，探索地外智慧或许多常见的大数据问题等方面尤其受欢迎。这些任务对于单台计算机来说太大了，所以要通过一组计算机来协作计算。
+由于多台连接的计算机的性质，为了有效地进行通信、协调计算机集群，现已开发了多种并行编程模型。一种流行的模式是Message Passing，消息传递并行模型。这个模型中又有很多套规范，目前在HPC中应用最广泛的的是MPI (message passing interface)。因为用户编写程序的时候只需要学习MPI标准接口，不用关心具体的实现。
+由于MPI在版本之间以及厂商之间存在较大的兼容性差异，所以在HPC中开发和部署MPI程序是一个具有挑战性的问题，很多时候不得不采用正确的编译器重新编译运行。甚至有人说“HPC is dying, and MPI is killing it”，其中一点原因也是因为MPI在HPC中的兼容性较差。
+</code></pre><p>现有的解决方案，有使用OpenLava运行MPI作业，OpenLava是一个开源的工作负载量兼容管理器， 可以使用它让MPI作业在工作负载管理器的控制下可靠且可预测地运行，有助于缓解一系列潜在的问题。另一种就是我的毕设即将做的方法，在今年三月份IEEE大会上有学者提出来的使用Docker容器包装MPI。<br>    容器技术是一种区别于虚拟机技术的操作系统级虚拟化技术。Docker是2013年开源的代表性容器管理工具。它比虚拟机技术更轻量化：1）启动一个Docker的耗时与操作系统启动一个普通进程基本相当；2）容器和宿主机共享操作系统内核，其镜像只需要包括应用和依赖。虽然不能像虚拟机技术那样支持不同操作系统的宿主机，但容器技术的轻量化具有显著优势，在开发、测试、生产环境中都可以平滑无差别的运行。<br>    并行编程模型有消息传递、共享存储、数据并行，可以混合使用，甚至还有指令级的并行。那么我的毕设涉及到的就是其中消息传递模型中的MPI，它又有很多实现，我打算封装的是MPICH和OpenMPI，之前IEEE提出来的做法仅封装了MPICH 。<br>    Docker和虚拟机技术比，不再需要单独的客户机操作系统，它直接使用宿主机的操作系统内核提供运行支持和资源管理机制。在Docker技术成熟之后，Docker、Mesosphere、Google等公司纷纷推出自己的容器计算平台。Swarm是Docker公司推出的原生容器集群管理工具，它使用Docker的Restful API，配合Docker Compose工具，实现了在集群上的容器编排和部署。这也是我将采用的。但是Swarm功能还比较少，没有用户认证、系统监控、用户界面等组件。<br>    Marathon是在Mesos资源管理器上开发的，主要针对长时间运行应用的执行框架，但它对容器应用只提供了单机存储。Kubernetes是Google公司开发的容器云计算平台，使用Pod作为基本管理单元，容器网络使用了flannel工具。<br>•    意义：将MPI通过Docker封装起来，可以解决HPC中MPI不兼容的问题。同时由于Docker轻量级的特性，更易于部署，且降低资源占用。因为在大型集群环境中，合理资源占用尤为重要。<br>MPI程序编译环境是传统语言编译器+符合MPI标准的库；编译的流程是mpicc –o编译mpi程序，将mpi.f头文件加载到程序中，形成可执行并行程序；通过mpirun脚本建立并行环境，分配节点/进程。Mpirun是由hydra进程管理器实现的，hydra利用ssh、rsh、pbs等工具运行程序，不需要进行复杂的配置，只需写一个hosts文件即可。<br>    一般Docker容器比较适合运行单个进程，但是在我的毕设中需要在Docker容器中运行多个进程。目前也有解决方案，比如使用shell脚本、Supervisor进程管理工具等等。<br>    最后就是Docker之间互相通信，打算使用overlay网络。它是docker提供的一种面向应用层的网络制式，支持多用户独占隔离网络，运行跨主机通信，甚至应用之间的网络隔离。</p>
+<p>**Docker：通过与宿主机共用操作系统内核的方式节省资源开销；使用cgroups技术实现资源的配额，使用内核的Namespace技术实现隔离；内置了基于联合文件系统 (AUFS)的镜像构建和分发功能；提供Restful风格的编程接口。</p>
 
-      mpirun：shell脚本，由hydra实现。
-      hydra：进程管理器（Process Manager，PM）利用ssh、rsh、pbs、slurm和sge等工具部署并运行程序。相对于mpd较为轻量——不用额外启动服务器端，不用进行复杂的服务器配置，只需写一个hosts文件即可。
-</code></pre>
       
     </div>
     
@@ -406,8 +386,8 @@ MPI的模型叫做SPMD，single program multiple data，即运行同一个程序
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/25/install-mpich/" rel="next" title="install mpich">
-                <i class="fa fa-chevron-left"></i> install mpich
+              <a href="/2017/11/25/MPI的容器化封装/" rel="next" title="MPI的容器化封装">
+                <i class="fa fa-chevron-left"></i> MPI的容器化封装
               </a>
             
           </div>
@@ -415,10 +395,6 @@ MPI的模型叫做SPMD，single program multiple data，即运行同一个程序
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/29/毕设开题讲稿/" rel="prev" title="毕设开题讲稿">
-                毕设开题讲稿 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -564,7 +540,7 @@ MPI的模型叫做SPMD，single program multiple data，即运行同一个程序
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0、知识准备"><span class="nav-number">1.</span> <span class="nav-text">0、知识准备</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#并行计算基础（六种实现手段）"><span class="nav-number">1.0.0.0.1.</span> <span class="nav-text">*并行计算基础（六种实现手段）</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一-MPI的认识"><span class="nav-number">1.1.</span> <span class="nav-text">(一)MPI的认识</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#毕设开题讲稿"><span class="nav-number">1.</span> <span class="nav-text">毕设开题讲稿</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#转载说明出处，抄袭发际线变高"><span class="nav-number">1.0.1.</span> <span class="nav-text">转载说明出处，抄袭发际线变高:-)</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
